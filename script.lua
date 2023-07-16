@@ -75,10 +75,27 @@ clip()
 end
 end
 Tab1:AddToggle({
-	Name = "Noclip",
-	Default = false,
-	Callback = onToggleChange,
+Name = "Noclip",
+Default = false,
+Callback = onToggleChange,
 })
+local InfiniteJumpEnabled = false
+local function infiniteJump()
+game:GetService("UserInputService").JumpRequest:Connect(function()
+if InfiniteJumpEnabled then
+game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+end
+end)
+end
+local function onToggleChange(toggleValue)
+InfiniteJumpEnabled = toggleValue
+end
+local toggle = Tab1:AddToggle({
+Name = "Infinite Jump",
+Default = false,
+Callback = onToggleChange,
+})
+infiniteJump()
 Tab1:AddButton({
 	Name = "Fly UI",
 	Callback = function()
