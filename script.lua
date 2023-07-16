@@ -155,4 +155,156 @@ Tab1:AddButton({
       		workspace.CurrentCamera.FieldOfView = 70
   	end    
 })
-
+local Tab2 = Window:MakeTab({
+	Name = "🎲 | Visuals",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section2 = Tab2:AddSection({
+	Name = "Visuals"
+})
+local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Sirius/request/library/sense/source.lua'))()
+Tab2:AddToggle({
+	Name = "Enable",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.enabled = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Box",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.box = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Box Outline",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.boxOutline = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Box Fill",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.boxFill = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Health Bar",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.healthBar = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Health Bar Outline",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.healthBarOutline = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = " Health Text",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.healthText = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Health Text Outline",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.healthTextOutline = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Box 3D",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.box3d = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Name",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.name = Toggle
+	end    
+})
+Tab2:AddToggle({
+	Name = "Name Outline",
+	Default = false,
+	Callback = function(Toggle)
+		Sense.teamSettings.enemy.nameOutline = Toggle
+	end    
+})
+local Section3 = Tab2:AddSection({
+	Name = "Esp Color"
+})
+Tab2:AddColorpicker({
+	Name = "Box Color",
+	Default = Color3.new(0, 0.25, 0.75),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.boxColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = " Box Outline Color",
+	Default = Color3.new(),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.boxOutlineColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = "Box Fill Color",
+	Default = Color3.new(1,0,0),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.boxFillColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = "Dying Color",
+	Default = Color3.new(1,0,0),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.boxFillColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = "Health Bar Outline Color",
+	Default = Color3.new(),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.healthBarOutlineColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = "Health Text Color",
+	Default = Color3.new(1,1,1),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.healthTextColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = "Box 3D Color ",
+	Default = Color3.new(1,0,0),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.box3dColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = "Name Color",
+	Default = Color3.new(1,1,1),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.nameColor[1] = Color
+	end	  
+})
+Tab2:AddColorpicker({
+	Name = "Name Out line Color",
+	Default = Color3.new(),
+	Callback = function(Color)
+		Sense.teamSettings.enemy.nameOutlineColor[1] = Color
+	end	  
+})
+Sense.Load()
