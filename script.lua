@@ -128,3 +128,18 @@ Tab1:AddButton({
 })
   	end    
 })
+local Section2 = Tab1:AddSection({
+	Name = "Settings"
+})
+Tab1:AddButton({
+	Name = "Reset Walkspeed",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+  	end    
+})
+Tab1:AddButton({
+	Name = "Reset JumpPower",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+  	end    
+})
