@@ -106,5 +106,11 @@ Tab1:AddButton({
 	Name = "Mobile Shift Lock",
 	Callback = function()
       		loadstring(game:HttpGet('https://pastebin.com/raw/qTJCkD1k'))()
+			OrionLib:MakeNotification({
+	Name = "UI",
+	Content = "Hey! Just a heads up, this script is exclusively designed for mobile devices, so it won't work on PCs.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
   	end    
 })
