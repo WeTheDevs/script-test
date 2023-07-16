@@ -14,3 +14,11 @@ local Tab1 = Window:MakeTab({
 local Section1 = Tab1:AddSection({
 	Name = "Players"
 })
+Tab1:AddTextbox({
+	Name = "Walkspeed",
+	Default = "16",
+	TextDisappear = true,
+	Callback = function(txt)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
+	end	  
+})
