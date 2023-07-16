@@ -1,56 +1,56 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Total Roblox Drama | WeTheDevs", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 OrionLib:MakeNotification({
-    Name = "UI",
-    Content = "The user interface (UI) has finished loading.",
-    Image = "rbxassetid://4483345998",
-    Time = 5
+   Name = "UI",
+   Content = "The user interface (UI) has finished loading.",
+   Image = "rbxassetid://4483345998",
+   Time = 5
 })
 
 local Tab1 = Window:MakeTab({
-    Name = "🎮 | Player",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
+   Name = "🎮 | Player",
+   Icon = "rbxassetid://4483345998",
+   PremiumOnly = false
 })
 
 local Section1 = Tab1:AddSection({
-    Name = "Players"
+   Name = "Players"
 })
 
 Tab1:AddTextbox({
-    Name = "Walkspeed",
-    Default = "16",
-    TextDisappear = true,
-    Callback = function(txt)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(txt)
-    end
+   Name = "Walkspeed",
+   Default = "16",
+   TextDisappear = true,
+   Callback = function(txt)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(txt)
+end
 })
 
 Tab1:AddTextbox({
-    Name = "JumpPower",
-    Default = "50",
-    TextDisappear = true,
-    Callback = function(txt)
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(txt)
-    end
+Name = "JumpPower",
+Default = "50",
+TextDisappear = true,
+Callback = function(txt)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(txt)
+end
 })
 
 Tab1:AddTextbox({
-    Name = "Gravity",
-    Default = "196.2",
-    TextDisappear = true,
-    Callback = function(txt)
-        game.Workspace.Gravity = tonumber(txt)
-    end
+Name = "Gravity",
+Default = "196.2",
+TextDisappear = true,
+Callback = function(txt)
+game.Workspace.Gravity = tonumber(txt)
+end
 })
 
 Tab1:AddTextbox({
-    Name = "FOV",
-    Default = "70",
-    TextDisappear = true,
-    Callback = function(txt)
-        workspace.CurrentCamera.FieldOfView = tonumber(txt)
-    end
+Name = "FOV",
+Default = "70",
+TextDisappear = true,
+Callback = function(txt)
+workspace.CurrentCamera.FieldOfView = tonumber(txt)
+end
 })
 
 local Noclip = nil
@@ -58,57 +58,57 @@ local Clip = nil
 local floatName = "FloatPart"
 
 local function noclip()
-    Clip = false
-    local function Nocl()
-        if Clip == false and game.Players.LocalPlayer.Character ~= nil then
-            for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-                if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
-                    v.CanCollide = false
-                end
-            end
-        end
-        wait(0)
-    end
-    Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+Clip = false
+local function Nocl()
+if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+   v.CanCollide = false
+end
+end
+end
+wait(0)
+end
+Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
 end
 
 local function clip()
-    if Noclip then Noclip:Disconnect() end
-    Clip = true
+if Noclip then Noclip:Disconnect() end
+Clip = true
 end
 
 local function onToggleChange(toggleValue)
-    if toggleValue then
-        noclip()
-    else
-        clip()
-    end
+if toggleValue then
+noclip()
+else
+clip()
+end
 end
 
 Tab1:AddToggle({
-    Name = "Noclip",
-    Default = false,
-    Callback = onToggleChange,
+Name = "Noclip",
+Default = false,
+Callback = onToggleChange,
 })
 
 local InfiniteJumpEnabled = false
 
 local function infiniteJump()
-    game:GetService("UserInputService").JumpRequest:Connect(function()
-        if InfiniteJumpEnabled then
-            game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-        end
-    end)
+game:GetService("UserInputService").JumpRequest:Connect(function()
+if InfiniteJumpEnabled then
+game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+end
+end)
 end
 
 local function onToggleChange(toggleValue)
-    InfiniteJumpEnabled = toggleValue
+InfiniteJumpEnabled = toggleValue
 end
 
 local toggle = Tab1:AddToggle({
-    Name = "Infinite Jump",
-    Default = false,
-    Callback = onToggleChange,
+Name = "Infinite Jump",
+Default = false,
+Callback = onToggleChange,
 })
 
 infiniteJump()
@@ -116,326 +116,326 @@ infiniteJump()
 local isAutoJumpEnabled = false
 
 Tab1:AddToggle({
-    Name = "Auto Jump",
-    Default = false,
-    Callback = function(Toggle)
-        isAutoJumpEnabled = Toggle
-        while isAutoJumpEnabled do
-            game.Players.LocalPlayer.Character.Humanoid.Jump = true
-            wait()
-        end
-    end
+Name = "Auto Jump",
+Default = false,
+Callback = function(Toggle)
+isAutoJumpEnabled = Toggle
+while isAutoJumpEnabled do
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+wait()
+end
+end
 })
 
 Tab1:AddButton({
-    Name = "Fly UI",
-    Callback = function()
-        loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
-    end
+Name = "Fly UI",
+Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
+end
 })
 
 Tab1:AddButton({
-    Name = "Mobile Shift Lock",
-    Callback = function()
-        loadstring(game:HttpGet('https://pastebin.com/raw/qTJCkD1k'))()
-        OrionLib:MakeNotification({
-            Name = "UI",
-            Content = "Hey! Just a heads up, this script is exclusively designed for mobile devices, so it won't work on PCs.",
-            Image = "rbxassetid://4483345998",
-            Time = 10
-        })
-    end
+Name = "Mobile Shift Lock",
+Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/qTJCkD1k'))()
+OrionLib:MakeNotification({
+Name = "UI",
+Content = "Hey! Just a heads up, this script is exclusively designed for mobile devices, so it won't work on PCs.",
+Image = "rbxassetid://4483345998",
+Time = 10
+})
+end
 })
 
 local Section2 = Tab1:AddSection({
-    Name = "Settings"
+Name = "Settings"
 })
 
 Tab1:AddButton({
-    Name = "Reset Walkspeed",
-    Callback = function()
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-    end
+Name = "Reset Walkspeed",
+Callback = function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end
 })
 
 Tab1:AddButton({
-    Name = "Reset JumpPower",
-    Callback = function()
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-    end
+Name = "Reset JumpPower",
+Callback = function()
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end
 })
 
 Tab1:AddButton({
-    Name = "Reset Gravity",
-    Callback = function()
-        game.Workspace.Gravity = 196.2
-    end
+Name = "Reset Gravity",
+Callback = function()
+game.Workspace.Gravity = 196.2
+end
 })
 
 Tab1:AddButton({
-    Name = "Reset Fov",
-    Callback = function()
-        workspace.CurrentCamera.FieldOfView = 70
-    end
+Name = "Reset Fov",
+Callback = function()
+workspace.CurrentCamera.FieldOfView = 70
+end
 })
 
 local Tab2 = Window:MakeTab({
-    Name = "🎲 | Visuals",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
+Name = "🎲 | Visuals",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
 })
 
 local Section2 = Tab2:AddSection({
-    Name = "Visuals"
+Name = "Visuals"
 })
 
 local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Sirius/request/library/sense/source.lua'))()
 
 Tab2:AddToggle({
-    Name = "Enable",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.enabled = Toggle
-    end
+Name = "Enable",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.enabled = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Box",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.box = Toggle
-    end
+Name = "Box",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.box = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Box Outline",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.boxOutline = Toggle
-    end
+Name = "Box Outline",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.boxOutline = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Box Fill",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.boxFill = Toggle
-    end
+Name = "Box Fill",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.boxFill = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Health Bar",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.healthBar = Toggle
-    end
+Name = "Health Bar",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.healthBar = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Health Bar Outline",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.healthBarOutline = Toggle
-    end
+Name = "Health Bar Outline",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.healthBarOutline = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Health Text",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.healthText = Toggle
-    end
+Name = "Health Text",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.healthText = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Health Text Outline",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.healthTextOutline = Toggle
-    end
+Name = "Health Text Outline",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.healthTextOutline = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Box 3D",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.box3d = Toggle
-    end
+Name = "Box 3D",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.box3d = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Name",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.name = Toggle
-    end
+Name = "Name",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.name = Toggle
+end
 })
 
 Tab2:AddToggle({
-    Name = "Name Outline",
-    Default = false,
-    Callback = function(Toggle)
-        Sense.teamSettings.enemy.nameOutline = Toggle
-    end
+Name = "Name Outline",
+Default = false,
+Callback = function(Toggle)
+Sense.teamSettings.enemy.nameOutline = Toggle
+end
 })
 
 local Section3 = Tab2:AddSection({
-    Name = "Esp Color"
+Name = "Esp Color"
 })
 
 Tab2:AddColorpicker({
-    Name = "Box Color",
-    Default = Color3.new(0, 0.25, 0.75),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.boxColor[1] = Color
-    end
+Name = "Box Color",
+Default = Color3.new(0, 0.25, 0.75),
+Callback = function(Color)
+Sense.teamSettings.enemy.boxColor[1] = Color
+end
 })
 
 Tab2:AddColorpicker({
-    Name = "Box Outline Color",
-    Default = Color3.new(),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.boxOutlineColor[1] = Color
-    end
+Name = "Box Outline Color",
+Default = Color3.new(),
+Callback = function(Color)
+Sense.teamSettings.enemy.boxOutlineColor[1] = Color
+end
 })
 
 Tab2:AddColorpicker({
-    Name = "Box Fill Color",
-    Default = Color3.new(1, 0, 0),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.boxFillColor[1] = Color
-    end
+Name = "Box Fill Color",
+Default = Color3.new(1, 0, 0),
+Callback = function(Color)
+Sense.teamSettings.enemy.boxFillColor[1] = Color
+end
 })
 
 Tab2:AddColorpicker({
-    Name = "Dying Color",
-    Default = Color3.new(1, 0, 0),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.boxFillColor[1] = Color
-    end
+Name = "Dying Color",
+Default = Color3.new(1, 0, 0),
+Callback = function(Color)
+Sense.teamSettings.enemy.boxFillColor[1] = Color
+end
 })
 
 Tab2:AddColorpicker({
-    Name = "Health Bar Outline Color",
-    Default = Color3.new(),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.healthBarOutlineColor[1] = Color
-    end
+Name = "Health Bar Outline Color",
+Default = Color3.new(),
+Callback = function(Color)
+Sense.teamSettings.enemy.healthBarOutlineColor[1] = Color
+end
 })
 
 Tab2:AddColorpicker({
-    Name = "Health Text Color",
-    Default = Color3.new(1, 1, 1),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.healthTextColor[1] = Color
-    end
+Name = "Health Text Color",
+Default = Color3.new(1, 1, 1),
+Callback = function(Color)
+Sense.teamSettings.enemy.healthTextColor[1] = Color
+end
 })
 
 Tab2:AddColorpicker({
-    Name = "Box 3D Color",
-    Default = Color3.new(1, 0, 0),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.box3dColor[1] = Color
-    end
+Name = "Box 3D Color",
+Default = Color3.new(1, 0, 0),
+Callback = function(Color)
+Sense.teamSettings.enemy.box3dColor[1] = Color
+end
 })
 
 Tab2:AddColorpicker({
-    Name = "Name Color",
-    Default = Color3.new(1, 1, 1),
-    Callback = function(Color)
-        Sense.teamSettings.enemy.nameColor[1] = Color
-    end
+Name = "Name Color",
+Default = Color3.new(1, 1, 1),
+Callback = function(Color)
+Sense.teamSettings.enemy.nameColor[1] = Color
+end
 })
 
 Sense.Load()
 
 local Tab3 = Window:MakeTab({
-    Name = "🕹️ | Advantages",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
+Name = "🕹️ | Advantages",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
 })
 
 local Section4 = Tab3:AddSection({
-    Name = "Items Tp"
+Name = "Items Tp"
 })
 
 Tab3:AddButton({
-    Name = "Tp to Bag",
-    Callback = function()
-        local player = game.Players.LocalPlayer
-        local modelToTeleportTo = workspace.Idols.Bag
+Name = "Tp to Bag",
+Callback = function()
+local player = game.Players.LocalPlayer
+local modelToTeleportTo = workspace.Idols.Bag
 
-        local hrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
-        if not hrp then
-            return
-        end
+local hrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if not hrp then
+return
+end
 
-        local primaryPart = modelToTeleportTo.PrimaryPart
-        if primaryPart then
-            hrp.CFrame = primaryPart.CFrame
-        else
-            local basePart = modelToTeleportTo:FindFirstChildWhichIsA("BasePart", true)
-            if basePart then
-                hrp.CFrame = basePart.CFrame
-            end
-        end
-    end
+local primaryPart = modelToTeleportTo.PrimaryPart
+if primaryPart then
+hrp.CFrame = primaryPart.CFrame
+else
+local basePart = modelToTeleportTo:FindFirstChildWhichIsA("BasePart", true)
+if basePart then
+hrp.CFrame = basePart.CFrame
+end
+end
+end
 })
 
 Tab3:AddButton({
-    Name = "Tp to Safety Statue",
-    Callback = function()
-        local player = game.Players.LocalPlayer
-        local modelToTeleportTo = workspace.Idols.SafetyStatue
+Name = "Tp to Safety Statue",
+Callback = function()
+local player = game.Players.LocalPlayer
+local modelToTeleportTo = workspace.Idols.SafetyStatue
 
-        local hrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
-        if not hrp then
-            return
-        end
+local hrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if not hrp then
+return
+end
 
-        local primaryPart = modelToTeleportTo.PrimaryPart
-        if primaryPart then
-            hrp.CFrame = primaryPart.CFrame
-        else
-            local basePart = modelToTeleportTo:FindFirstChildWhichIsA("BasePart", true)
-            if basePart then
-                hrp.CFrame = basePart.CFrame
-            end
-        end
-    end
+local primaryPart = modelToTeleportTo.PrimaryPart
+if primaryPart then
+hrp.CFrame = primaryPart.CFrame
+else
+local basePart = modelToTeleportTo:FindFirstChildWhichIsA("BasePart", true)
+if basePart then
+hrp.CFrame = basePart.CFrame
+end
+end
+end
 })
 local Section5 = Tab3:AddSection({
-	Name = "Cave Chaos"
+Name = "Cave Chaos"
 })
 Tab3:AddButton({
-	Name = "Remove Pickaxe",
-	Callback = function()
+Name = "Remove Pickaxe",
+Callback = function()
 local childToDelete = workspace.Assets["Cave Chaos"].CaveChaos.Challenge:GetChildren()[145]
 if childToDelete then
-    childToDelete:Destroy()
+childToDelete:Destroy()
 else
-    print("Child does not exist.")
+print("Child does not exist.")
 end
 
-  	end    
+end
 })
 Tab3:AddButton({
-	Name = "Remove water kill",
-	Callback = function()
+Name = "Remove water kill",
+Callback = function()
 local waterObject = workspace.Assets["Cave Chaos"].Water
 if waterObject then
-    waterObject:Destroy()
+waterObject:Destroy()
 else
-    print("Water object does not exist.")
+print("Water object does not exist.")
 end
-  	end    
+end
 })
 Tab3:AddButton({
-    Name = "Tp to finish",
-    Callback = function()
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local finishPart = game.Workspace.Assets["Cave Chaos"].Finish
-        character:SetPrimaryPartCFrame(finishPart.CFrame)
-    end
+Name = "Tp to finish",
+Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local finishPart = game.Workspace.Assets["Cave Chaos"].Finish
+character:SetPrimaryPartCFrame(finishPart.CFrame)
+end
 })
