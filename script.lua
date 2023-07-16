@@ -38,6 +38,14 @@ Tab1:AddTextbox({
 		game.Workspace.Gravity = txt
 	end	  
 })
+Tab1:AddTextbox({
+	Name = "FOV",
+	Default = "196.2",
+	TextDisappear = true,
+	Callback = function(txt)
+		workspace.CurrentCamera.FieldOfView = txt
+	end	  
+})
 local Noclip = nil
 local Clip = nil
 local floatName = "FloatPart"
