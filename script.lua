@@ -40,7 +40,7 @@ Tab1:AddTextbox({
 })
 Tab1:AddTextbox({
 	Name = "FOV",
-	Default = "196.2",
+	Default = "70",
 	TextDisappear = true,
 	Callback = function(txt)
 		workspace.CurrentCamera.FieldOfView = txt
@@ -143,3 +143,16 @@ Tab1:AddButton({
       		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
   	end    
 })
+Tab1:AddButton({
+	Name = "Reset Gravity",
+	Callback = function()
+      		game.Workspace.Gravity = 196.2
+  	end    
+})
+Tab1:AddButton({
+	Name = "Reset Fov",
+	Callback = function()
+      		workspace.CurrentCamera.FieldOfView = 70
+  	end    
+})
+
