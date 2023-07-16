@@ -22,3 +22,11 @@ Tab1:AddTextbox({
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
 	end	  
 })
+Tab1:AddTextbox({
+	Name = "JumpPower",
+	Default = "50",
+	TextDisappear = true,
+	Callback = function(txt)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = txt
+	end	  
+})
