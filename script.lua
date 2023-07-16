@@ -102,3 +102,9 @@ Tab1:AddButton({
       		loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
   	end    
 })
+Tab1:AddButton({
+	Name = "Mobile Shift Lock",
+	Callback = function()
+      		loadstring(game:HttpGet('https://pastebin.com/raw/qTJCkD1k'))()
+  	end    
+})
