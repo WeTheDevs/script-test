@@ -30,3 +30,44 @@ Tab1:AddTextbox({
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = txt
 	end	  
 })
+Tab1:AddTextbox({
+	Name = "Gravity",
+	Default = "196.2",
+	TextDisappear = true,
+	Callback = function(txt)
+		game.Workspace.Gravity = txt
+	end	  
+})
+local Noclip = nil
+local Clip = nil
+local floatName = "FloatPart"
+function noclip()
+Clip = false
+local function Nocl()
+if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+v.CanCollide = false
+end
+end
+end
+wait(0)
+end
+Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+end
+function clip()
+if Noclip then Noclip:Disconnect() end
+Clip = true
+end
+local function onToggleChange(toggleValue)
+if toggleValue then
+noclip()
+else
+clip()
+end
+end
+Tab1:AddToggle({
+	Name = "Noclip",
+	Default = false,
+	Callback = onToggleChange,
+})
