@@ -80,7 +80,7 @@ Tab1:AddToggle({
 	Callback = onToggleChange,
 })
 Tab1:AddButton({
-	Name = "Fly Ui",
+	Name = "Fly UI",
 	Callback = function()
       		loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
   	end    
