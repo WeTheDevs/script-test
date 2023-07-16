@@ -79,3 +79,9 @@ Tab1:AddToggle({
 	Default = false,
 	Callback = onToggleChange,
 })
+Tab1:AddButton({
+	Name = "Fly Ui",
+	Callback = function()
+      		loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
+  	end    
+})
