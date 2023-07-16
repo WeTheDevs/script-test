@@ -96,6 +96,19 @@ Default = false,
 Callback = onToggleChange,
 })
 infiniteJump()
+Tab1:AddToggle({
+Name = "Auto Jump",
+Default = false,
+Callback = function(Toggle)
+isAutoJumpEnabled = Toggle
+end
+})
+game:GetService("UserInputService").JumpRequest:Connect(function()
+if isAutoJumpEnabled then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end
+end)
+
 Tab1:AddButton({
 	Name = "Fly UI",
 	Callback = function()
