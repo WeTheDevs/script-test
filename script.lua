@@ -110,7 +110,7 @@ Tab1:AddButton({
 	Name = "UI",
 	Content = "Hey! Just a heads up, this script is exclusively designed for mobile devices, so it won't work on PCs.",
 	Image = "rbxassetid://4483345998",
-	Time = 5
+	Time = 10
 })
   	end    
 })
