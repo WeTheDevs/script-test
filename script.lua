@@ -470,3 +470,161 @@ end
 local Section7 = Tab3:AddSection({
 	Name = "Cliff Diving"
 })
+Tab3:AddButton({
+	Name = "Tp to finish",
+	Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local finishPart = game.workspace.Assets["Cliff Diving"].Finish
+character:SetPrimaryPartCFrame(finishPart.CFrame)
+  	end    
+})
+local Section8 = Tab3:AddSection({
+	Name = "Lava Dash"
+})
+Tab3:AddButton({
+	Name = "Delete Lava teleport",
+	Callback = function()
+local scriptToDelete = workspace.Assets["Lava Dash"].Lava.Script
+if scriptToDelete then
+    scriptToDelete:Destroy()
+else
+    print("Script does not exist.")
+end
+  	end    
+})
+Tab3:AddButton({
+	Name = "Tp to finish",
+	Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local finishPart = workspace.Assets["Lava Dash"].Finish
+character:SetPrimaryPartCFrame(finishPart.CFrame)
+  	end    
+})
+local Section9 = Tab3:AddSection({
+	Name = "Obstacle Course"
+})
+Tab3:AddButton({
+	Name = "Remove InvisWalls",
+	Callback = function()
+local invisWallsObject = workspace.Assets["Obstacle Course"].ObstacleCourse.InvisWalls
+if invisWallsObject then
+    invisWallsObject:Destroy()
+else
+    print("InvisWalls object does not exist.")
+end
+
+  	end    
+})
+Tab3:AddButton({
+	Name = "Tp to finish",
+	Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local finishPart = workspace.Assets["Obstacle Course"].Finish
+character:SetPrimaryPartCFrame(finishPart.CFrame)
+  	end    
+})
+local Section10 = Tab3:AddSection({
+	Name = "Pond Pier"
+})
+Tab3:AddButton({
+	Name = "Delete InvisWalls",
+	Callback = function()
+local invisibleWallsObject = workspace.Assets["Pond Pier"].PondPier.InvisibleWalls
+if invisibleWallsObject then
+    invisibleWallsObject:Destroy()
+else
+    print("InvisibleWalls object does not exist.")
+end
+
+  	end    
+})
+Tab3:AddButton({
+	Name = "Tp to finish",
+	Callback = function()
+      	local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Pond Pier"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+  	end    
+})
+Tab3:AddButton({
+	Name = "Remove Hay",
+	Callback = function()
+local challengeObject = workspace.Assets["Pond Pier"].PondPier.Challenge
+if challengeObject then
+    local childToDelete1 = challengeObject:GetChildren()[54]
+    local childToDelete2 = challengeObject:GetChildren()[50]
+    if childToDelete1 and childToDelete2 then
+        childToDelete1:Destroy()
+        childToDelete2:Destroy()
+    else
+        print("One or both children do not exist.")
+    end
+else
+    print("Challenge object does not exist.")
+end
+
+  	end    
+})
+local Section11 = Tab3:AddSection({
+	Name = "Rickety Rail"
+})
+Tab3:AddButton({
+	Name = "Tp to finish",
+	Callback = function()
+      	local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Rickety Rail"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+  	end    
+})
+local Section12 = Tab3:AddSection({
+	Name = "Rockwall"
+})
+Tab3:AddButton({
+    Name = "Tp to finish",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Rickety Rail"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
+local Section13 = Tab3:AddSection({
+	Name = "Spleef"
+})
+Tab3:AddButton({
+	Name = "Remove Invisible walls",
+	Callback = function()
+local invisibleBarriersObject = workspace.Assets.Spleef.Spleef.InvisibleBarriers
+if invisibleBarriersObject then
+    invisibleBarriersObject:Destroy()
+else
+    print("InvisibleBarriers object does not exist.")
+end
+  	end    
+})
+Tab3:AddButton({
+	Name = "Delete KillPart",
+	Callback = function()
+local partObject = workspace.Assets.Spleef.Part
+if partObject then
+    partObject:Destroy()
+else
+    print("Part object does not exist.")
+end
+
+  	end    
+})
+Tab3:AddButton({
+    Name = "Tp to safe area",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.workspace.Assets.Spleef.Spleef.Props.Crates:GetChildren()[4].Part
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
