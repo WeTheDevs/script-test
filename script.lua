@@ -196,6 +196,18 @@ Name = "Enable",
 Default = false,
 Callback = function(Toggle)
 Sense.teamSettings.enemy.enabled = Toggle
+         local UserInputService = game:GetService("UserInputService")
+
+if UserInputService.TouchEnabled then
+local OrionLib = require(game:GetService("ServerScriptService").OrionLib) -- Assuming OrionLib is a module placed in ServerScriptService
+ OrionLib:MakeNotification({
+Name = "UI",
+Content = "Hey, sorry, but ESP doesn't work on mobile right now! We will fix that shortly.",
+Image = "rbxassetid://4483345998",
+Time = 5
+})
+end
+
 end
 })
 
