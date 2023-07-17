@@ -196,18 +196,6 @@ Name = "Enable",
 Default = false,
 Callback = function(Toggle)
 Sense.teamSettings.enemy.enabled = Toggle
-         local UserInputService = game:GetService("UserInputService")
-
-if UserInputService.TouchEnabled then
-local OrionLib = require(game:GetService("ServerScriptService").OrionLib) -- Assuming OrionLib is a module placed in ServerScriptService
- OrionLib:MakeNotification({
-Name = "UI",
-Content = "Hey, sorry, but ESP doesn't work on mobile right now! We will fix that shortly.",
-Image = "rbxassetid://4483345998",
-Time = 5
-})
-end
-
 end
 })
 
@@ -417,6 +405,34 @@ end
 end
 })
 local Section5 = Tab3:AddSection({
+Name = "Bootcamp"
+})
+Tab3:AddButton({
+	Name = "Delete Mud Teleport",
+	Callback = function()
+local objectToDelete = workspace.Assets.Bootcamp.Mud
+objectToDelete:Destroy()
+
+  	end    
+})
+Tab3:AddButton({
+	Name = "Delete Chef",
+	Callback = function()
+local objectToDelete = workspace.Assets.Bootcamp["    "]
+objectToDelete:Destroy()
+
+  	end    
+})
+Tab3:AddButton({
+Name = "Tp to finish",
+Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local finishPart = game.Workspace.Assets.Bootcamp.Finish
+character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
+local Section6 = Tab3:AddSection({
 Name = "Cave Chaos"
 })
 Tab3:AddButton({
@@ -450,4 +466,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local finishPart = game.Workspace.Assets["Cave Chaos"].Finish
 character:SetPrimaryPartCFrame(finishPart.CFrame)
 end
+})
+local Section7 = Tab3:AddSection({
+	Name = "Cliff Diving"
 })
