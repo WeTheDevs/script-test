@@ -776,9 +776,3 @@ Tab3:AddButton({
         character:SetPrimaryPartCFrame(finishPart.CFrame)
     end
 })
-Tab1:AddButton({
-Name = "Sword Range",
-Callback = function()
-loadstring(game:HttpsGet('http://pastebin.com/raw/tsbVWZdP'))() 
-		end
-})
