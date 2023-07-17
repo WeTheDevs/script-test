@@ -628,3 +628,49 @@ Tab3:AddButton({
         character:SetPrimaryPartCFrame(finishPart.CFrame)
     end
 })
+local Section14 = Tab3:AddSection({
+	Name = "UnstableSavannah"
+})
+Tab3:AddButton({
+	Name = "Planks Bigger",
+	Callback = function()
+      		local part = game.Workspace.Assets["Unstable Savannah"].UnstableSavannah.Challenge:GetChildren()[59]:GetChildren()[8]
+part.Size = Vector3.new(12.74999713897705, 5.050000190734863, 0.19999991357326508)
+			local part = game.Workspace.Assets["Unstable Savannah"].UnstableSavannah.Challenge:GetChildren()[38]:GetChildren()[8]
+part.Size = Vector3.new(12.449997901916504, 5.050000190734863, 0.19999991357326508)
+
+  	end    
+})
+Tab3:AddButton({
+	Name = "Remove Water",
+	Callback = function()
+      	local unstableSavannah = game.workspace.Assets["Unstable Savannah"]
+
+for _, part in ipairs(unstableSavannah:GetDescendants()) do
+    if part:IsA("BasePart") and part.Name == "Water" then
+        part:Destroy()
+    end
+end
+
+  	end    
+})
+Tab3:AddButton({
+	Name = "Remove Invisible Walls",
+	Callback = function()
+      		local invisibleWalls = game.Workspace.Assets["Unstable Savannah"].UnstableSavannah.InvisibleWalls
+
+for _, part in ipairs(invisibleWalls:GetChildren()) do
+    part:Destroy()
+end
+  	end    
+})
+
+Tab3:AddButton({
+    Name = "Tp to finish",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Unstable Savannah"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
