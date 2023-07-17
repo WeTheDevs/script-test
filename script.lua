@@ -674,3 +674,105 @@ Tab3:AddButton({
         character:SetPrimaryPartCFrame(finishPart.CFrame)
     end
 })
+local Section15 = Tab3:AddSection({
+	Name = "Block Push"
+})
+Tab3:AddButton({
+	Name = "Delete Walls",
+	Callback = function()
+local challengeObstaclesObject = workspace["Block Push"].Blockpush.ChallengeObstacles
+if challengeObstaclesObject then
+    challengeObstaclesObject:Destroy()
+else
+    print("ChallengeObstacles object does not exist.")
+end
+
+  	end    
+})
+local Section16 = Tab3:AddSection({
+	Name = "Colosseum Climb"
+})
+Tab3:AddButton({
+	Name = "Bigger Planks",
+	Callback = function()
+local part1 = game.Workspace.Assets["Colosseum Climb"].ColosseumClimb.Challenge:GetChildren()[348]
+local part2 = game.Workspace.Assets["Colosseum Climb"].ColosseumClimb.Challenge:GetChildren()[349]
+part1.Size = Vector3.new(15.717883110046387, 0.23939405381679535, 3.523636817932129)
+part2.Size = Vector3.new(18.66788101196289, 0.23939405381679535, 4.073636531829834)
+  	end    
+})
+Tab3:AddButton({
+    Name = "Tp to finish",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Colosseum Climb"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
+local Section17 = Tab3:AddSection({
+	Name = "Construct Course"
+})
+Tab3:AddButton({
+	Name = "Remove Invisible walls",
+	Callback = function()
+local invisibleWallsObject = workspace.Assets["Construct Course"].ConstructCourse.InvisibleWalls
+if invisibleWallsObject then
+    invisibleWallsObject:Remove()
+else
+    print("InvisibleWalls object does not exist.")
+end
+
+  	end    
+})
+Tab3:AddButton({
+	Name = "Remove Wind effect",
+	Callback = function()
+local mainConveyorObject = workspace.Assets["Construct Course"].ConstructCourse.Assets["Main Conveyor"]
+if mainConveyorObject then
+    mainConveyorObject:Destroy()
+else
+    print("Main Conveyor object does not exist.")
+end
+local childToDelete = workspace.Assets["Construct Course"].ConstructCourse.Assets:GetChildren()[108]
+if childToDelete then
+    childToDelete:Destroy()
+else
+    print("Child at index 108 does not exist.")
+end
+
+  	end    
+})
+Tab3:AddButton({
+    Name = "Tp to finish",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Construct Course"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
+local Section18 = Tab3:AddSection({
+	Name = "Hill Hike"
+})
+Tab3:AddButton({
+    Name = "Tp to finish",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Hill Hike"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
+local Section18 = Tab3:AddSection({
+	Name = "Tightrope Obby"
+})
+Tab3:AddButton({
+    Name = "Tp to finish",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local finishPart = game.Workspace.Assets["Tightrope Obby"].Finish
+        character:SetPrimaryPartCFrame(finishPart.CFrame)
+    end
+})
